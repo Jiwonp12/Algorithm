@@ -1,12 +1,5 @@
-function solution(balls, share) {
-    let f = function (num) {
-        let n = BigInt(1);
-        for(let i = 1; i <= num; i++) {
-            n = n * BigInt(i);
-        }
-            return n;
-    }
-    return f(balls)/(f(balls-share)*f(share));
-}
+const 팩토리얼 = (num) => num === 0 ? 1 : num * 팩토리얼(num - 1)
 
-// balls! / (balls-share)! x share! 
+function solution(balls, share) {
+  return Math.round(팩토리얼(balls) / 팩토리얼(balls - share) / 팩토리얼(share))
+}
